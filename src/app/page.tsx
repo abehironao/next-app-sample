@@ -1,5 +1,8 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { AlertCircle } from "lucide-react";
+
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 
 export default function Home() {
   return (
@@ -13,6 +16,14 @@ export default function Home() {
       <Button disabled>
         <Link href="/login">Login</Link>
       </Button>
+
+      <Alert variant="destructive">
+        <AlertCircle className="size-4" />
+        <AlertTitle>Error</AlertTitle>
+        <AlertDescription>
+          Your session has expired. Please log in again.
+        </AlertDescription>
+      </Alert>
     </div>
   );
 }
