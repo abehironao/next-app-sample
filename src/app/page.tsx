@@ -1,8 +1,12 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { AlertCircle } from "lucide-react";
 
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+
+import { toast } from "sonner";
 
 export default function Home() {
   return (
@@ -24,6 +28,24 @@ export default function Home() {
           Your session has expired. Please log in again.
         </AlertDescription>
       </Alert>
+
+      <Button
+        variant="outline"
+        onClick={() =>
+          toast.warning("Event has been created", {
+            position: "top-right",
+            duration: Infinity,
+            // invert: true,
+            description: "Sunday, December 03, 2023 at 9:00 AM",
+            action: {
+              label: "Undo",
+              onClick: () => console.log("Undo"),
+            },
+          })
+        }
+      >
+        Show Toast
+      </Button>
     </div>
   );
 }
