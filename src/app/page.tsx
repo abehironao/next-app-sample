@@ -2,11 +2,18 @@
 
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { AlertCircle } from "lucide-react";
-
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 
 import { toast } from "sonner";
+
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 
 export default function Home() {
   return (
@@ -20,14 +27,6 @@ export default function Home() {
       <Button disabled>
         <Link href="/login">Login</Link>
       </Button>
-
-      <Alert variant="destructive">
-        <AlertCircle className="size-4" />
-        <AlertTitle>Error</AlertTitle>
-        <AlertDescription>
-          Your session has expired. Please log in again.
-        </AlertDescription>
-      </Alert>
 
       <Button
         variant="outline"
@@ -46,6 +45,24 @@ export default function Home() {
       >
         Show Toast
       </Button>
+
+      <Dialog>
+        <DialogTrigger asChild>
+          <Button variant="outline">Edit Profile</Button>
+        </DialogTrigger>
+        <DialogContent className="sm:max-w-[425px]">
+          <DialogHeader>
+            <DialogTitle>Edit profile</DialogTitle>
+            <DialogDescription>
+              Update your profile information
+            </DialogDescription>
+          </DialogHeader>
+          <div className="grid gap-4 py-4"></div>
+          <DialogFooter>
+            <Button type="submit">Save changes</Button>
+          </DialogFooter>
+        </DialogContent>{" "}
+      </Dialog>
     </div>
   );
 }
